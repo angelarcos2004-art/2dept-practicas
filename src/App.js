@@ -6,6 +6,8 @@ import ComponenteFrm from './ComponenteFrm';
 import PokemonCards from './PokemonCards';
 import BackendForm from './BackendForm';
 
+import DatabaseManager from './DatabaseManager';
+
 function App() {
 
   const textoBase = "Hola esta es mi primera pagina en React";
@@ -16,7 +18,8 @@ function App() {
   
   const [mostrarBackend, setMostrarBackend] = useState(false);
 
-  
+  const [mostrarManager, setMostrarManager]   = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -65,6 +68,15 @@ function App() {
 
         {mostrarBackend && <BackendForm />}
 
+        <br /><br />
+        
+        <button className="btn-backend" onClick={() => setMostrarManager(!mostrarManager)}>
+          {mostrarManager ? "Ocultar Sistema Escolar" : "Mostrar Sistema Escolar"}
+        </button>
+
+        {mostrarManager && <DatabaseManager />}
+
+        <br /><br />
 
       </header>
     </div>
