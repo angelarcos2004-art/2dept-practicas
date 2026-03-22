@@ -37,41 +37,42 @@
   }
 }
 
-.btn-multiplicar{
-  background-color: #61dafb;
-  color: #000;
+.btn-multiplicar {
+  background: linear-gradient(45deg, #6366f1, #a78bfa);
   border: none;
-  padding: 12px 25px;
+  color: white;
+  padding: 12px 22px;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 20px;
   cursor: pointer;
   margin-top: 20px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-.btn-multiplicar:hover{
-  background-color: #21a1f1;
+.btn-multiplicar:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 10px #a78bfa;
 }
 
-.btn-galeria{
-  background-color: #ff9800;
-  color: white;
+.btn-galeria {
+  background: linear-gradient(45deg, #6366f1, #a78bfa);
   border: none;
-  padding: 12px 25px;
+  color: white;
+  padding: 12px 22px;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 20px;
   cursor: pointer;
   margin-top: 10px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-.btn-galeria:hover{
-  background-color: #e68900;
+.btn-galeria:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 10px #a78bfa;
 }
+
 
 .btn-pokemon{
   background: linear-gradient(45deg,#ff6ec4,#7873f5);

@@ -68,7 +68,7 @@ function App() {
           className="btn-multiplicar"
           onClick={() => setTexto(texto === textoBase || texto === "" ? (textoBase + "\n").repeat(10) : "")}
         >
-          Mostrar componente
+          {texto === textoBase || texto === "" ? "Mostrar componente" : "Ocultar componente"}
         </button>
 
         <br /><br />
