@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import ComponenteFrm from './ComponenteFrm';
 import PokemonCards from './PokemonCards';
 import BackendForm from './BackendForm';
-
 import DatabaseManager from './DatabaseManager';
+import { supabase } from './supabaseClient';
 
 function App() {
 
@@ -15,10 +15,43 @@ function App() {
 
   const [mostrarGaleria, setMostrarGaleria] = useState(true);
   const [mostrarPokemon, setMostrarPokemon] = useState(false);
-  
   const [mostrarBackend, setMostrarBackend] = useState(false);
+  const [mostrarManager, setMostrarManager] = useState(false);
+  const [user, setUser] = useState(null);
 
-  const [mostrarManager, setMostrarManager]   = useState(false);
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+      if (session?.user) setMostrarManager(true);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      if (session?.user) setMostrarManager(true);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleMostrarManager = async () => {
+    if (mostrarManager) {
+      setMostrarManager(false);
+    } else if (user) {
+      setMostrarManager(true);
+    } else {
+      await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href },
+      });
+    }
+  };
+
+  const handleCerrarSesion = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    setMostrarManager(false);
+    window.open("https://accounts.google.com/logout", "_blank");
+  };
 
   return (
     <div className="App">
@@ -62,6 +95,9 @@ function App() {
 
         {mostrarPokemon && <PokemonCards />}
 
+        <br /><br />
+
+        {/* PRACTICA 6 - BACKEND SIN AUTH */}
         <button className="btn-backend" onClick={() => setMostrarBackend(!mostrarBackend)}>
           {mostrarBackend ? "Ocultar Backend" : "Mostrar Backend"}
         </button>
@@ -69,12 +105,25 @@ function App() {
         {mostrarBackend && <BackendForm />}
 
         <br /><br />
-        
-        <button className="btn-backend" onClick={() => setMostrarManager(!mostrarManager)}>
+
+        {/* PRACTICA 8 - SISTEMA ESCOLAR CON AUTH */}
+        <button className="btn-backend" onClick={handleMostrarManager}>
           {mostrarManager ? "Ocultar Sistema Escolar" : "Mostrar Sistema Escolar"}
         </button>
 
-        {mostrarManager && <DatabaseManager />}
+        {user && (
+          <div style={{ marginTop: '8px', fontSize: '0.85rem', color: '#aaa' }}>
+            Sesión: {user.email} &nbsp;
+            <button
+              onClick={handleCerrarSesion}
+              className="btn-cerrar-sesion"
+            >
+              Cerrar sesión
+            </button>
+          </div>
+        )}
+
+        {mostrarManager && user && <DatabaseManager />}
 
         <br /><br />
 
