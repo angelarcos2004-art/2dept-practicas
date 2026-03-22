@@ -72,3 +72,21 @@
   background-color: #e68900;
   transform: scale(1.05);
 }
+
+.btn-pokemon{
+  background: linear-gradient(45deg,#ff6ec4,#7873f5);
+  border: none;
+  color: white;
+  padding: 12px 22px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.btn-pokemon:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff6ec4;
+}
+

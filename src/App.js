@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+
 import ComponenteFrm from './ComponenteFrm';
+import PokemonCards from './PokemonCards';
 
 function App() {
 
@@ -9,6 +11,7 @@ function App() {
   const [texto, setTexto] = useState(textoBase);
 
   const [mostrarGaleria, setMostrarGaleria] = useState(true);
+  const [mostrarPokemon, setMostrarPokemon] = useState(false);
 
   return (
     <div className="App">
@@ -20,7 +23,7 @@ function App() {
 
         <pre>{texto}</pre>
 
-        {/* BOTON PRACTICA ANTERIOR */}
+        {/* PRACTICA 2 */}
         <button
           className="btn-multiplicar"
           onClick={() => setTexto(texto === textoBase || texto === "" ? (textoBase + "\n").repeat(10) : "")}
@@ -30,7 +33,7 @@ function App() {
 
         <br /><br />
 
-        {/* BOTON GALERIA */}
+        {/* GALERIA */}
         <button
           className="btn-galeria"
           onClick={() => setMostrarGaleria(!mostrarGaleria)}
@@ -38,8 +41,19 @@ function App() {
           {mostrarGaleria ? "Ocultar galería" : "Mostrar galería"}
         </button>
 
-        {/* LLAMADA AL COMPONENTE */}
         {mostrarGaleria && <ComponenteFrm />}
+
+        <br /><br />
+
+        {/* POKEMON */}
+        <button
+          className="btn-pokemon"
+          onClick={() => setMostrarPokemon(!mostrarPokemon)}
+        >
+          {mostrarPokemon ? "Ocultar Pokémon" : "Mostrar Pokémon"}
+        </button>
+
+        {mostrarPokemon && <PokemonCards />}
 
       </header>
     </div>
