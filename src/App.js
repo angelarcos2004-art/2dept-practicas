@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import ComponenteFrm from './ComponenteFrm';
 import PokemonCards from './PokemonCards';
+import BackendForm from './BackendForm';
 
 function App() {
 
@@ -12,7 +13,10 @@ function App() {
 
   const [mostrarGaleria, setMostrarGaleria] = useState(true);
   const [mostrarPokemon, setMostrarPokemon] = useState(false);
+  
+  const [mostrarBackend, setMostrarBackend] = useState(false);
 
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -54,6 +58,13 @@ function App() {
         </button>
 
         {mostrarPokemon && <PokemonCards />}
+
+        <button className="btn-backend" onClick={() => setMostrarBackend(!mostrarBackend)}>
+          {mostrarBackend ? "Ocultar Backend" : "Mostrar Backend"}
+        </button>
+
+        {mostrarBackend && <BackendForm />}
+
 
       </header>
     </div>

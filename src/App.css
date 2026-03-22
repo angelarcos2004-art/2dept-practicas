@@ -90,3 +90,19 @@
   box-shadow: 0 0 10px #ff6ec4;
 }
 
+.btn-backend{
+  background: linear-gradient(45deg, #6366f1, #a78bfa);
+  border: none;
+  color: white;
+  padding: 12px 22px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.btn-backend:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #a78bfa;
+}

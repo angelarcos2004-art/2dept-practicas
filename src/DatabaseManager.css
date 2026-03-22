@@ -1,0 +1,243 @@
+/* ── Container ─────────────────────────────────────────────────────────────── */
+.dbm-container {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-top: 20px;
+  width: 760px;
+}
+
+.dbm-title {
+  color: #22d3ee;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ── Tabs ──────────────────────────────────────────────────────────────────── */
+.dbm-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 14px;
+}
+
+.dbm-tab {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dbm-tab:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #cbd5e1;
+}
+
+.dbm-tab.active {
+  background: linear-gradient(45deg, #6366f1, #a78bfa);
+  border-color: transparent;
+  color: white;
+  font-weight: bold;
+}
+
+/* ── Section ───────────────────────────────────────────────────────────────── */
+.dbm-section-title {
+  color: #a78bfa;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* ── Form ──────────────────────────────────────────────────────────────────── */
+.dbm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.dbm-form input,
+.dbm-form select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 10px 13px;
+  color: #cbd5e1;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.25s;
+}
+
+.dbm-form input::placeholder {
+  color: #475569;
+}
+
+.dbm-form input:focus,
+.dbm-form select:focus {
+  border-color: #6366f1;
+}
+
+.dbm-form select option {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+.dbm-row2 {
+  display: flex;
+  gap: 10px;
+}
+
+.dbm-row2 input,
+.dbm-row2 select {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 10px 13px;
+  color: #cbd5e1;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.25s;
+}
+
+.dbm-row2 input::placeholder { color: #475569; }
+.dbm-row2 input:focus,
+.dbm-row2 select:focus { border-color: #6366f1; }
+.dbm-row2 select option { background: #1e293b; color: #cbd5e1; }
+
+.dbm-row3 {
+  display: flex;
+  gap: 10px;
+}
+
+.dbm-row3 input,
+.dbm-row3 select {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 10px 13px;
+  color: #cbd5e1;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.25s;
+}
+
+.dbm-row3 input::placeholder { color: #475569; }
+.dbm-row3 input:focus,
+.dbm-row3 select:focus { border-color: #6366f1; }
+.dbm-row3 select option { background: #1e293b; color: #cbd5e1; }
+
+/* ── Buttons ───────────────────────────────────────────────────────────────── */
+.dbm-btn-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dbm-btn-agregar {
+  background: linear-gradient(45deg, #6366f1, #a78bfa);
+  border: none;
+  color: white;
+  padding: 10px 26px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.dbm-btn-agregar:hover:not(:disabled) {
+  transform: scale(1.04);
+  box-shadow: 0 0 12px #a78bfa80;
+}
+
+.dbm-btn-agregar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dbm-btn-eliminar {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #f87171;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dbm-btn-eliminar:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+/* ── Table ─────────────────────────────────────────────────────────────────── */
+.dbm-tabla-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dbm-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.dbm-tabla thead tr {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.dbm-tabla th {
+  padding: 11px 10px;
+  color: #94a3b8;
+  font-weight: bold;
+  text-align: left;
+  letter-spacing: 0.04em;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.dbm-tabla tbody tr {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.15s;
+}
+
+.dbm-tabla tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dbm-tabla td {
+  padding: 10px 10px;
+  color: #cbd5e1;
+}
+
+.dbm-sin-datos {
+  text-align: center;
+  color: #475569;
+  padding: 20px;
+}
+
+/* ── Error ─────────────────────────────────────────────────────────────────── */
+.dbm-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
