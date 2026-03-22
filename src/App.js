@@ -3,7 +3,8 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [texto, setTexto] = useState("Hola esta es mi primera pagina en React");
+  const textoBase = "Hola esta es mi primera pagina en React";
+  const [texto, setTexto] = useState(textoBase);
 
   return (
     <div className="App">
@@ -13,8 +14,8 @@ function App() {
           Desarrollo Web 2o Dept
         </p>
         <pre>{texto}</pre>
-        <button className="btn-multiplicar" onClick={() => setTexto((texto + "\n").repeat(10))}>
-          Multiplicar
+        <button className="btn-multiplicar" onClick={() => setTexto(texto === textoBase || texto === "" ? (textoBase + "\n").repeat(10) : "")}>
+          Multiplicar / Ocultar 2do click
         </button>
       </header>
     </div>
